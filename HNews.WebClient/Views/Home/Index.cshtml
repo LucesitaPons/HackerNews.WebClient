@@ -1,8 +1,27 @@
-﻿@{
+﻿@using HNews.WebClient.ViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
+@model BestStoriesRequest
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Hacker News API Client</h1>
+    <h3>For Best Stories</h3>
 </div>
+<form asp-controller="HackerNewsApi" asp-action="BestStoriesDetails" method="post" class="row g-3">
+    <div class="col-md-6">
+        <label class="form-label">Specify the number of results to load: <input class="form-control" asp-for="N_param"></label>
+    </div>
+    <div class="col-md-6">
+        <div class="mb-3 form-check form-switch">
+            <label class="form-check-label" for="setRecursive"><input type="checkbox" class="form-check-input" role="switch" asp-for="@Model.setRecursive" /> Count the comments replies like more comments?</label>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-floating">
+            <button class="btn btn-outline-info" id="btnSubmit" onclick="DisplayLoading()" type="submit">Submit</button>
+        </div>
+    </div>
+</form>
+
+    

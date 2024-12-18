@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model List<BestStories>
+
+    
+<h3>Best Stories</h3>
+<div class="table-responsive">
+    <table class="table table-sm table-bordered caption-top">
+        <caption>Best @Model.Count Stories</caption>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Id</th>
+                <th class="table-light">Score</th>
+                <th>Title</th>
+                <th>Uri</th>
+                <th>Posted by</th>
+                <th>Time</th>
+                <th>Descendants</th>
+                <th>Type</th>
+                <th>Comments</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int count = 0;
+                foreach (var bs in Model)
+                {
+                    count += 1;
+                    <tr>
+                        <td>@count</td>
+                        <td>@bs.Id</td>
+                        <td class="table-light">@bs.Score</td>
+                        <td>@bs.Title</td>
+                        <td>@bs.Url</td>
+                        <td>@bs.By</td>
+                        <td>@bs.Time</td>
+                        <td>@bs.Descendants</td>
+                        <td>@bs.Type</td>
+                        <td>@bs.CommentsCount</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+@{
+    
+}
